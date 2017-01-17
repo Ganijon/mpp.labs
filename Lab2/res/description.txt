@@ -1,0 +1,21 @@
+Project Management Tracking System
+
+We have multiple projects to manage. 
+
+Each project has a product backlog which has all the features that could be included in this project.  
+
+A project has multiple releases.  
+
+The product backlog features are added to a particular release by our project manager.  
+
+Each release is made up of one or more sprints. Sprints contain a subset of the release features and have a due date. (Read about sprints here: https://en.wikipedia.org/wiki/Sprint_(software_development)  
+
+Each feature in a sprint is assigned to a developer.  
+
+Each developer will estimate the effort required to complete their feature.  
+
+Each day the developer provides an estimate of the remaining work needed to complete their feature.  
+
+Each day the project manager reports on the amount of work completed for the sprint and the amount of work remaining for the sprint. 
+
+Just watch this video to know about product backlog, releases and sprints https://www.youtube.com/user/axosoft
