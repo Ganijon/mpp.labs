@@ -5,9 +5,17 @@ import java.util.Collection;
 
 public class ProductBacklog {
 
-    public Collection<Feature> Features;
+    private Collection<Feature> Features;
     
     public ProductBacklog() {
         Features = new ArrayList<>();
+    }
+
+    public Collection<Feature> getFeatures() {
+        return Features;
+    }
+    
+    public void setFeatures(Collection<Feature> Features) {
+        this.Features = Features;
     }
 }

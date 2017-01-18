@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public class Developer extends Person {
     
-    Collection<Feature> AssignedFeatures;
+    private Collection<Feature> AssignedFeatures;
     
     public Developer(String name) {
         super.Name = name;
@@ -13,6 +13,14 @@ public class Developer extends Person {
     }
     
     public void EstimateEffort(Feature feature, int effort){
-        feature.Effort = effort;
+        feature.setEffort(effort);
+    }
+
+    public Collection<Feature> getAssignedFeatures() {
+        return AssignedFeatures;
+    }
+
+    public void setAssignedFeatures(Collection<Feature> AssignedFeatures) {
+        this.AssignedFeatures = AssignedFeatures;
     }
 }

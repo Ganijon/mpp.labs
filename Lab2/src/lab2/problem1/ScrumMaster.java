@@ -7,18 +7,18 @@ public class ScrumMaster extends Person {
     }
 
     public void AssignSprintFeatureToDeveloper(Feature feature, Developer developer) {
-        developer.AssignedFeatures.add(feature);
+        developer.getAssignedFeatures().add(feature);
     }
 
     public void AddReleaseFeatureToSprint(Feature feature, Sprint sprint) {
-        sprint.Features.add(feature);
+        sprint.getFeatures().add(feature);
     }
 
     public void ReportCompletedWork(Feature feature, int workUnits) {
-        feature.CompletedWork = workUnits;
+        feature.setCompletedWork(workUnits);
     }
 
     public void ReportRemainingWork(Feature feature, int workUnits) {
-        feature.RemainingWork = workUnits;
+        feature.setRemainingWork(workUnits);
     }
 }
