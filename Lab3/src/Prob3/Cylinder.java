@@ -14,16 +14,16 @@ public class Cylinder {
     private double hieght;
 
     public Cylinder() {
-        this.circle = circle;
-        this.hieght = hieght;
+      
+        this.hieght = 1.0;    
     }
 
-    public Cylinder(double rad) {
-        this.circle = circle;
-        this.hieght = hieght;
+    public Cylinder(double radius) {
+        circle = new Circle(radius);
+        this.hieght = 1.0;
     }
-    public Cylinder(Circle circle, double hieght) {
-        this.circle = circle;
+    public Cylinder(double radius, double hieght) {
+        this.circle = new Circle(radius);
         this.hieght = hieght;
     }
 
@@ -31,8 +31,9 @@ public class Cylinder {
         return hieght;
     }
 
-    public void setHieght(double hieght) {
-        this.hieght = hieght;
+    public double getVolume() {
+       
+       return circle.getArea()*hieght;
     }
     
     
