@@ -4,6 +4,10 @@ public class SalariedEmployee extends Employee {
 
     private double salary;
 
+    public SalariedEmployee(int id){
+        super(id);
+    }
+    
     public double getSalary() {
         return salary;
     }
@@ -13,7 +17,7 @@ public class SalariedEmployee extends Employee {
     }
 
     @Override
-    public double calcGrossPay(int month, int year) {
+    protected double calcGrossPay(int month, int year) {
         return salary;
     }
 }

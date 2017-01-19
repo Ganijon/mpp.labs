@@ -19,11 +19,18 @@ public class Paycheck {
         this.socialSecurity = socialSecurity;
     }
 
-    public void print() {
-
+    public double getNetPay() {
+        return grossPay - getDeductions();
     }
 
-    public void getNetPay() {
+    private double getDeductions() {
+        return grossPay / 100 * (fica + state + local + medicare + socialSecurity);
+    }
 
+    public void print() {
+        System.out.print(" Paycheck:\n");
+        System.out.printf("  Gross Pay:  $%,.2f\n", grossPay);
+        System.out.printf("  Deductions: $%,.2f\n", getDeductions());
+        System.out.printf("  Net Pay:    $%,.2f\n", getNetPay());
     }
 }

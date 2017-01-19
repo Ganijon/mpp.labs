@@ -1,8 +1,13 @@
 package lab4.part_c;
 
 public class HourlyEmployee extends Employee {
+
     private double hourlyWage;
     private double hoursPerWeek;
+
+    public HourlyEmployee(int id) {
+        super(id);
+    }
 
     public double getHourlyWage() {
         return hourlyWage;
@@ -21,8 +26,8 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
-    public double calcGrossPay(int month, int year) {
-       return 4 * hoursPerWeek * hourlyWage;
+    protected double calcGrossPay(int month, int year) {
+        return 4 * hoursPerWeek * hourlyWage;
     }
-    
+
 }

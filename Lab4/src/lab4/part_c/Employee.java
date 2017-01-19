@@ -6,15 +6,19 @@ public abstract class Employee {
 
     private int empId;
     
-    public abstract double calcGrossPay(int month, int year);
+    public Employee(int id) {
+        empId = id;
+    }
+    protected abstract double calcGrossPay(int month, int year);
     
     public void print() {
         LocalDate now = LocalDate.now();
         Paycheck paycheck = calcCompensation(now.getMonthValue(), now.getYear());
-        System.out.printf("EmpID: %s\n%s\n", empId, paycheck);
+        System.out.printf("\nEmployee ID: %s\n%s/%s", empId, now.getMonthValue(), now.getYear());
+        paycheck.print();         
     }
     
-    public Paycheck calcCompensation(int month, int year) {
+    private Paycheck calcCompensation(int month, int year) {
         /*
             FICA is 23%
             State tax is 5%
@@ -23,7 +27,7 @@ public abstract class Employee {
             Social Security is 7.5%
         */
         double grossPayAmount = calcGrossPay(month, year);
+        
         return new Paycheck(grossPayAmount, 23, 5, 1, 3, 7.5);        
     }
-  
 }
