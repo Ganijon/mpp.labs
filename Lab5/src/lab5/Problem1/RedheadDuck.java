@@ -5,4 +5,9 @@ class RedheadDuck extends Duck {
         setFlyBehaviour(new FlyWithWings());
         setQuackBehaviour(new Quack());
     }
+
+    @Override
+    void display() {
+        System.out.println("Red head in flock...");
+    }
 }

@@ -5,4 +5,9 @@ class DecoyDuck extends Duck {
         setFlyBehaviour(new CannotFly());
         setQuackBehaviour(new MuteQuack());
     }
+
+    @Override
+    void display() {
+        System.out.println("Decoy duck in flock...");
+    }
 }

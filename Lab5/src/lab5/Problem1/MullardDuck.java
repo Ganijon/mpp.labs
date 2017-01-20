@@ -5,4 +5,9 @@ class MullardDuck extends Duck {
         setFlyBehaviour(new FlyWithWings());
         setQuackBehaviour(new Quack());
     }
+
+    @Override
+    void display() {
+        System.out.println("Mullard duck in flock...");
+    }
 }

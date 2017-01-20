@@ -20,6 +20,10 @@ abstract class Duck {
         this.quackBehaviour = quackBehaviour;
     }
     
+    public void fly() {
+        flyBehaviour.fly();
+    }
+    
     public void quack() {
         quackBehaviour.quack();
     }
@@ -28,10 +32,5 @@ abstract class Duck {
         System.out.println("Swim...");
     }
     
-    public void display() {
-        System.out.printf("\n[%s]\n", this.getClass().getSimpleName());
-        flyBehaviour.fly();
-        quack();
-        swim();
-    }
+    abstract void display();
 }

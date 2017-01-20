@@ -5,4 +5,9 @@ class RubberDuck extends Duck {
         setFlyBehaviour(new CannotFly());
         setQuackBehaviour(new Squeak());
     }
+
+    @Override
+    void display() {
+        System.out.println("Rubber duck in flock...");
+    }
 }

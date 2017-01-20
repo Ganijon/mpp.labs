@@ -17,7 +17,11 @@ public class App {
         }
 
         for (Duck duck : flock) {
-               duck.display();
+            System.out.printf("\n[%s]\n", duck.getClass().getSimpleName());
+            duck.display();
+            duck.fly();
+            duck.quack();
+            duck.swim();
         }
     }
 }
