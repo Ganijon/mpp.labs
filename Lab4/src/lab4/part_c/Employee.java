@@ -1,7 +1,5 @@
 package lab4.part_c;
 
-import java.time.LocalDate;
-
 public abstract class Employee {
 
     private int empId;
@@ -11,10 +9,9 @@ public abstract class Employee {
     }
     protected abstract double calcGrossPay(int month, int year);
     
-    public void print() {
-        LocalDate now = LocalDate.now();
-        Paycheck paycheck = calcCompensation(now.getMonthValue(), now.getYear());
-        System.out.printf("\nEmployee ID: %s\n%s/%s", empId, now.getMonthValue(), now.getYear());
+    public void print(int month, int year) {
+        Paycheck paycheck = calcCompensation(month, year);
+        System.out.printf("\nEmployee ID: %s\n%s/%s", empId, month, year);
         paycheck.print();         
     }
     
