@@ -1,6 +1,6 @@
 package lab5.Problem1;
 
-public class Duck {
+abstract class Duck {
     private FlyBehaviour flyBehaviour;
     private QuackBehaviour quackBehaviour;
 
@@ -20,4 +20,18 @@ public class Duck {
         this.quackBehaviour = quackBehaviour;
     }
     
+    public void quack() {
+        quackBehaviour.quack();
+    }
+    
+    public void swim() {
+        System.out.println("Swim...");
+    }
+    
+    public void display() {
+        System.out.printf("\n[%s]\n", this.getClass().getSimpleName());
+        flyBehaviour.fly();
+        quack();
+        swim();
+    }
 }
