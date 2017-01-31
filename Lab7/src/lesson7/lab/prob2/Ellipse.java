@@ -1,4 +1,4 @@
-package lesson7.lab2;
+package lesson7.lab.prob2;
 
 public class Ellipse implements ClosedCurve {
 

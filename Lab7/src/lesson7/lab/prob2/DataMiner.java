@@ -1,4 +1,4 @@
-package lesson7.lab2;
+package lesson7.lab.prob2;
 
 import java.util.ArrayList;
 import java.util.List;
