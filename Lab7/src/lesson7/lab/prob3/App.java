@@ -3,7 +3,7 @@ package lesson7.lab.prob3;
 public class App {
 
     public static void main(String[] args) {
-        
+
         Duck[] flock = new Duck[4];
 
         try {

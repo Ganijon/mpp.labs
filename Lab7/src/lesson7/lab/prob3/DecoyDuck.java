@@ -1,10 +1,6 @@
 package lesson7.lab.prob3;
 
-class DecoyDuck extends Duck {
-    DecoyDuck(){
-        setFlyBehaviour(new CannotFly());
-        setQuackBehaviour(new MuteQuack());
-    }
+class DecoyDuck extends Duck implements CannotFly, MuteQuack {
 
     @Override
     void display() {

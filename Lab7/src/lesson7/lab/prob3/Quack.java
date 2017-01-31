@@ -1,10 +1,10 @@
 package lesson7.lab.prob3;
 
-class Quack implements QuackBehaviour {
+interface Quack extends QuackBehaviour {
 
     @Override
-    public void quack() {
+    default void quack() {
         System.out.println("Quack...");
     }
-    
+
 }

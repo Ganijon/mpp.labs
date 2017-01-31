@@ -1,9 +1,9 @@
 package lesson7.lab.prob3;
 
-class FlyWithWings implements FlyBehaviour {
+interface FlyWithWings extends FlyBehaviour {
 
     @Override
-    public void fly() {
+    default void fly() {
         System.out.println("Fly with wings...");
     }
     

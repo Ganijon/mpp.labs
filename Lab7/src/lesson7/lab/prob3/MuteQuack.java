@@ -1,9 +1,9 @@
 package lesson7.lab.prob3;
 
-class MuteQuack implements QuackBehaviour {
+interface MuteQuack extends QuackBehaviour {
 
     @Override
-    public void quack() {
+    default void quack() {
         System.out.println("Mute...");
     }
     

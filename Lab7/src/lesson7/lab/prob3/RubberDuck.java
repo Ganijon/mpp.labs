@@ -1,10 +1,6 @@
 package lesson7.lab.prob3;
 
-class RubberDuck extends Duck {
-    RubberDuck(){
-        setFlyBehaviour(new CannotFly());
-        setQuackBehaviour(new Squeak());
-    }
+class RubberDuck extends Duck implements CannotFly, Squeak {
 
     @Override
     void display() {
