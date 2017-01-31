@@ -2,7 +2,7 @@ package lesson7.lab2;
 
 public class EquilateralTriangle implements Polygon {
 
-    private double side;
+    private final double side;
 
     public EquilateralTriangle(double side) {
         this.side = side;
@@ -13,5 +13,4 @@ public class EquilateralTriangle implements Polygon {
         return new double[]{side, side, side};
     }
 
-  
 }

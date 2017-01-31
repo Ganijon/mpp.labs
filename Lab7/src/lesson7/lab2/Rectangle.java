@@ -2,7 +2,8 @@ package lesson7.lab2;
 
 public class Rectangle implements Polygon {
 
-    private double length, width;
+    private final double length;
+    private final double width;
 
     public Rectangle(double length, double width) {
         this.length = length;

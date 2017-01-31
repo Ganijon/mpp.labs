@@ -4,9 +4,10 @@ public interface Polygon extends ClosedCurve {
 
     double[] getLengths();
 
-    public default double ComputePerimeter() {
+    @Override
+    public default double computePerimeter() {
         double perimeter = 0;
-
+        
         for (double length : getLengths()) {
             perimeter += length;
         }

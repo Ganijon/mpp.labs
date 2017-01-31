@@ -2,8 +2,8 @@ package lesson7.lab2;
 
 public class Ellipse implements ClosedCurve {
 
-    private double a;
-    private double E;
+    private final double a;
+    private final double E;
 
     public Ellipse(double a, double E) {
         this.a = a;
@@ -14,5 +14,4 @@ public class Ellipse implements ClosedCurve {
     public double computePerimeter() {
         return 4 * a * E;
     }
-
 }

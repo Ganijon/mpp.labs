@@ -8,7 +8,9 @@ public class DataMiner {
     List<ClosedCurve> objects = new ArrayList<>();
 
     public static void main(String[] args) {
+        
         DataMiner dm = new DataMiner();
+        
         dm.objects.add(new Rectangle(5, 7));
         dm.objects.add(new EquilateralTriangle(9));
         dm.objects.add(new Circle(6));
