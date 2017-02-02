@@ -1,14 +1,13 @@
 package lesson9.lecture.practice;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 class Student {
 
-    private enum Gender {
+    public static enum Gender {
         Male, Female
     };
 
@@ -50,9 +49,29 @@ class Student {
 
         List<Student> sorted = students
                 .stream()
-                .sorted((s1, s2) -> Integer.compare(s1.regNo, s2.regNo))
+                .sorted((s1, s2) -> Float.compare(s1.gpa, s2.gpa))
                 .collect(Collectors.toList());
         printer.accept("Student names: " + sorted);
+
+        
+    }
+
+    public Student() {
+    }
+
+    public Student(String name) {
+        this.name = name;
+    }
+    
+    public Student(int regNo, String name) {
+        this.regNo = regNo;
+        this.name = name;
+    }
+
+    public Student(int regNo, String name, Gender gender) {
+        this.regNo = regNo;
+        this.name = name;
+        this.gender = gender;
     }
 
     public Student(int regNo, String name, Gender gender, float GPA) {
