@@ -1,4 +1,4 @@
-package lesson8.lab.prob1;
+package lesson8.lab.problem1;
 
 import java.util.function.Predicate;
 

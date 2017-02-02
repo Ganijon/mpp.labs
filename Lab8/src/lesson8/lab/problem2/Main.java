@@ -1,4 +1,4 @@
-package lesson8.lab.prob2;
+package lesson8.lab.problem2;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
