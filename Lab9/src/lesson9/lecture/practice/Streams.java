@@ -2,9 +2,12 @@ package lesson9.lecture.practice;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -12,8 +15,22 @@ import java.util.stream.Stream;
 
 public class Streams {
 
+    /*
+    Stream is 
+        a sequence of elements supporting sequential 
+        or parallel aggregate operations.
+     */
+    static Consumer<Object> print = System.out::println;
+
     public static void main(String[] args) {
-        Stream<String> stream1 = Stream.of("Hi", "Hello", "Bye", "Ciao");
+        String[] words = new String[]{"Hi", "Hello", "Bye", "Ciao"};
+        List<String> words2 = Arrays.asList("One", "Two", "Three");
+
+        Stream
+                .concat(Arrays.stream(words), words2.stream())
+                .forEach(print);
+
+        Stream<String> stream1 = Stream.of();
         stream1.filter(w -> w.startsWith("H"))
                 .forEach(System.err::println);
 
@@ -59,11 +76,19 @@ public class Streams {
 
         TriFunction<Integer, String, Student.Gender, Student> tfs = Student::new;
         Student chris = tfs.apply(8, "chris", Student.Gender.Male);
+
+        //List<Integer, List<String, LocalDate>> complexList;
     }
 
     @FunctionalInterface
     interface TriFunction<T, U, V, R> {
 
         R apply(T t, U u, V v);
+    }
+    
+    @FunctionalInterface
+    interface QuadFunction<T, U, V, W, R> {
+
+        R apply(T t, U u, V v, W w);
     }
 }
