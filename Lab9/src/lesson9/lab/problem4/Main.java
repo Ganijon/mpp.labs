@@ -1,4 +1,4 @@
-package lesson9.lab.prob4;
+package lesson9.lab.problem4;
 
 import java.util.function.IntUnaryOperator;
 import java.util.stream.IntStream;
