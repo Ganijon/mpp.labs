@@ -1,5 +1,6 @@
 package lesson9.lab.problem4;
 
+import java.util.function.IntConsumer;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.IntStream;
 
@@ -12,13 +13,15 @@ public class Main {
     }
 
     public static void printSquares(int num) {
+        IntConsumer printOut = (n) -> System.out.printf("%s, ", n);
+        IntUnaryOperator squareUp = (n) -> n * n;
 
-        IntUnaryOperator f = (n) -> n + 1;
-
+        IntUnaryOperator increment = (n) -> n + 1;
+        
         IntStream
-                .iterate(1, f)
+                .iterate(1, increment)
                 .limit(num)
-                .map(n -> n * n)
-                .forEach((n) -> System.out.printf("%s, ", n));
+                .map(squareUp)
+                .forEach(printOut);
     }
 }
