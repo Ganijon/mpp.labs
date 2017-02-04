@@ -23,7 +23,7 @@ public class Main {
         System.out.println(unitedSet);
 
         Set<String> flattenedSet = flatten(sets);
-        System.out.println(flattenedSet);
+        System.out.println(flattenedSet); // order not retained
     }
 
     public static Set<String> union(List<Set<String>> sets) {
