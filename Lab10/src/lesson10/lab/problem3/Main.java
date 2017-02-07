@@ -21,13 +21,10 @@ public class Main {
     }
 
     public static <T extends Number> Double sum(List<T> list) {
-        Double d = 0.0;
-
-        for (T i : list) {
-            d += i.doubleValue();
-        }
-
-        return d;
+        return list
+                .stream()
+                .map((i) -> i.doubleValue())
+                .reduce(0.0, (a, b) -> a + b);
     }
 
 }

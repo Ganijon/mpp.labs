@@ -10,21 +10,20 @@ public class Capture {
         List<String> list = Arrays.asList("Java", "MPP", "SE");
 
         System.out.println(list);
-        
-        reverse(list); 
-        
+
+        reverse(list);
+
         System.out.println(list);
     }
 
-    // uses helper method to capture wildcard
     public static void reverse(List<?> list) {
         reverseHelp(list);
     }
 
     private static <T> void reverseHelp(List<T> list) {
         List<T> tmp = new ArrayList<>(list);
-        
-        for (int i = 0, j = list.size() -1; i < list.size(); i++, j--) {
+
+        for (int i = 0, j = list.size() - 1; i < list.size(); i++, j--) {
             list.set(i, tmp.get(j));
         }
     }

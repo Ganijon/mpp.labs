@@ -3,32 +3,32 @@ package lesson10.lab.problem4;
 public class Main {
 
     public static void main(String[] args) {
-        GenericStack<Integer> ints = new GenericStack(3);
+        GenericStack<Float> stack = new GenericStack(3);
 
-        System.out.printf("Size:%s Empty:%s\n", ints.size(), ints.isEmpty());
+        System.out.printf("Size:%s Empty:%s\n", stack.size(), stack.isEmpty());
 
-        ints.push(1);
-        ints.push(2);
-        ints.push(3);
+        stack.push(1F);
+        stack.push(2F);
+        stack.push(3F);
 
-        System.out.printf("Size:%s Empty:%s\n", ints.size(), ints.isEmpty());
+        System.out.printf("Size:%s Empty:%s\n", stack.size(), stack.isEmpty());
 
-        ints.push(4);
+        stack.push(4F);
 
-        System.out.printf("Size:%s Empty:%s\n", ints.size(), ints.isEmpty());
+        System.out.printf("Size:%s Empty:%s\n", stack.size(), stack.isEmpty());
 
-        System.out.println(ints.peek());
-        System.out.println(ints.peek());
-        System.out.println(ints.pop());
-        System.out.println(ints.pop());
+        System.out.println(stack.peek());
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
 
-        System.out.printf("Size:%s Empty:%s\n", ints.size(), ints.isEmpty());
+        System.out.printf("Size:%s Empty:%s\n", stack.size(), stack.isEmpty());
 
-        System.out.println(ints.pop());
-        System.out.println(ints.pop());
-        System.out.println(ints.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
         
-        System.out.printf("Size:%s Empty:%s\n", ints.size(), ints.isEmpty());
+        System.out.printf("Size:%s Empty:%s\n", stack.size(), stack.isEmpty());
 
     }
 
