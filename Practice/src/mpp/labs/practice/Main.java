@@ -25,34 +25,17 @@ public class Main {
                 );
 
         printer.accept("3. Grouping: HashMap<countryName, citiesCount>");
-        Map<String, Integer> countryByCitiesCount
-                = Data.COUNTRIES.get()
-                        .collect(Collectors.toMap(Country::getName, country
-                                -> country.getCities().size()));
-        countryByCitiesCount
+        LambdaLibrary.COUNTRIES_BY_NO_OF_CITIES.apply(Data.COUNTRIES.get())
                 .forEach((country, cities)
                         -> System.out.printf(" %s%s\n", country, cities));
 
         printer.accept("4. Grouping: HashMap<countryName, totalPopulation>");
-        Map<String, Double> countryByPopulation
-                = Data.COUNTRIES.get()
-                        .collect(Collectors.toMap(Country::getName, (country)
-                                -> country
-                                .getCities()
-                                .stream()
-                                .map(City::getPopulation)
-                                .reduce(0.0, Double::sum)
-                        ));
-        countryByPopulation
+        LambdaLibrary.COUNTRIES_BY_POPULATION.apply(Data.COUNTRIES.get())
                 .forEach((country, population)
                         -> System.out.printf(" %s%.2fm\n", country, population));
 
         printer.accept("5. Find the highlest populated city in each country");
-        Map<String, Optional<City>> countryByMostPopulousCity
-                = Data.COUNTRIES.get()
-                        .collect(Collectors.toMap(Country::getName, Main::findMostPopulousCity));
-
-        countryByMostPopulousCity
+        LambdaLibrary.COUNTRIES_BY_MOST_POPULOUS_CITY.apply(Data.COUNTRIES.get())
                 .forEach((country, cityOpt) -> {
                     cityOpt.ifPresent(
                             (city) -> System.out.printf(" %s%s%.1fm\n",
@@ -61,8 +44,7 @@ public class Main {
                 });
 
         printer.accept("6. Find the least populated city in each country");
-        Data.COUNTRIES.get()
-                .collect(Collectors.toMap(Country::getName, Main::findLeastPopulousCity))
+        LambdaLibrary.COUNTRIES_BY_LEAST_POPULOUS_CITY.apply(Data.COUNTRIES.get())
                 .forEach((country, cityOpt) -> {
                     cityOpt.ifPresent(
                             (city) -> System.out.printf(" %s%s%.1fm\n",
@@ -73,16 +55,9 @@ public class Main {
         printer.accept("7. Find whether city exist in the country ");
         String COUNTRY = "Russia";
         String CITY = "Moscow";
-
-        Data.COUNTRIES.get()
-                .filter(country -> country.getName().startsWith(COUNTRY))
-                .findAny()
-                .ifPresent(country
-                        -> findCityByName(CITY, country)
-                        .ifPresent(city
-                                -> System.out.printf(" Found: %s in %s\n",
-                                city.getName(), country.getName())
-                        )
+        LambdaLibrary.FIND_CITY_BY_COUNTRY.apply(Data.COUNTRIES.get(), COUNTRY, CITY)
+                .ifPresent(city
+                        -> System.out.printf(" Found: %s in %s\n", city.getName(), COUNTRY)
                 );
 
         printer.accept("8. Find the country, where the name starts with specific character");
@@ -95,7 +70,7 @@ public class Main {
         String CITY2 = "Suez";
         Data.COUNTRIES.get()
                 .forEach(country
-                        -> findCityByName(CITY2, country)
+                        -> LambdaLibrary.FIND_CITY_BY_NAME.apply(CITY2, country)
                         .ifPresent(city -> System.out.printf(" Found: %s %.2fm\n",
                         city.getName(), city.getPopulation())));
 
@@ -168,27 +143,5 @@ public class Main {
                     });
                 });
 
-    }
-
-    private static Optional<City> findCityByName(String cityName, Country country) {
-        return country
-                .getCities()
-                .stream()
-                .filter((city) -> city.getName().startsWith(cityName))
-                .findFirst();
-    }
-
-    private static Optional<City> findMostPopulousCity(Country country) {
-        return country
-                .getCities()
-                .stream()
-                .max(Comparator.comparing(City::getPopulation));
-    }
-
-    private static Optional<City> findLeastPopulousCity(Country country) {
-        return country
-                .getCities()
-                .stream()
-                .min(Comparator.comparing(City::getPopulation));
     }
 }
