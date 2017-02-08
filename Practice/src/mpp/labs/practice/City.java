@@ -2,16 +2,16 @@ package mpp.labs.practice;
 
 public class City {
 
-    private final String cityName;
+    private final String name;
     private final double population;
     
     public City(String cityName, double population){
-        this.cityName = cityName;
+        this.name = cityName;
         this.population = population;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getName() {
+        return name;
     }
 
     public double getPopulation() {
@@ -21,11 +21,11 @@ public class City {
      @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(" City Name:");
-        sb.append(cityName);
+        sb.append("City:");
+        sb.append(name);
         sb.append(" Population:");
         sb.append(population);
-        sb.append(" mln.");
+        sb.append("m");
         return sb.toString();
     }
 
@@ -34,14 +34,14 @@ public class City {
         if (o == null) return false;
         if (o.getClass() != this.getClass()) return false;
         City c = (City) o;
-        return c.cityName.equals(this.cityName)
+        return c.name.equals(this.name)
                 && c.population == this.population;
     }
 
     @Override
     public int hashCode() {
         int hash = 17;
-        hash = 31 * hash + cityName.hashCode();
+        hash = 31 * hash + name.hashCode();
         hash = 31 * hash + Double.hashCode(population);
         return hash;
     }
