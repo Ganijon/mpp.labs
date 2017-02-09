@@ -85,5 +85,4 @@ public class Data {
 
         return countries.stream();
     };
-
 }
