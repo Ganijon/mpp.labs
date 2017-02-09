@@ -21,83 +21,73 @@ public class Main {
                             .forEach(city -> System.out.printf(" %s%.3fm\n",
                             city.getName(), city.getPopulation())
                             );
-                }
-                );
+                });
 
         printer.accept("3. Grouping: HashMap<countryName, citiesCount>");
-        LambdaLibrary.COUNTRIES_BY_NO_OF_CITIES.apply(Data.COUNTRIES.get())
+
+        LambdaLibrary.COUNTRIES_BY_NO_OF_CITIES
+                .apply(Data.COUNTRIES.get())
                 .forEach((country, cities)
                         -> System.out.printf(" %s%s\n", country, cities));
 
         printer.accept("4. Grouping: HashMap<countryName, totalPopulation>");
-        LambdaLibrary.COUNTRIES_BY_POPULATION.apply(Data.COUNTRIES.get())
+
+        LambdaLibrary.COUNTRIES_BY_POPULATION
+                .apply(Data.COUNTRIES.get())
                 .forEach((country, population)
                         -> System.out.printf(" %s%.2fm\n", country, population));
 
         printer.accept("5. Find the highlest populated city in each country");
-        LambdaLibrary.COUNTRIES_BY_MOST_POPULOUS_CITY.apply(Data.COUNTRIES.get())
+
+        LambdaLibrary.COUNTRIES_BY_MOST_POPULOUS_CITY
+                .apply(Data.COUNTRIES.get())
                 .forEach((country, cityOpt) -> {
-                    cityOpt.ifPresent(
-                            (city) -> System.out.printf(" %s%s%.1fm\n",
-                                    country, city.getName(), city.getPopulation())
-                    );
+                    cityOpt.ifPresent(city -> System.out.printf(" %s%s%.1fm\n",
+                            country, city.getName(), city.getPopulation()));
                 });
 
         printer.accept("6. Find the least populated city in each country");
-        LambdaLibrary.COUNTRIES_BY_LEAST_POPULOUS_CITY.apply(Data.COUNTRIES.get())
+
+        LambdaLibrary.COUNTRIES_BY_LEAST_POPULOUS_CITY
+                .apply(Data.COUNTRIES.get())
                 .forEach((country, cityOpt) -> {
-                    cityOpt.ifPresent(
-                            (city) -> System.out.printf(" %s%s%.1fm\n",
-                                    country, city.getName(), city.getPopulation())
-                    );
+                    cityOpt.ifPresent(city -> System.out.printf(" %s%s%.1fm\n",
+                            country, city.getName(), city.getPopulation()));
                 });
 
         printer.accept("7. Find whether city exist in the country ");
-        String COUNTRY = "Russia";
-        String CITY = "Moscow";
-        LambdaLibrary.FIND_CITY_BY_COUNTRY.apply(Data.COUNTRIES.get(), COUNTRY, CITY)
-                .ifPresent(city
-                        -> System.out.printf(" Found: %s in %s\n", city.getName(), COUNTRY)
-                );
+
+        LambdaLibrary.FIND_CITY_BY_COUNTRY
+                .apply(Data.COUNTRIES.get(), "Russia", "Moscow")
+                .ifPresent(city -> System.out.printf(" Found: %s in %s\n",
+                city.getName(), "Russia"));
 
         printer.accept("8. Find the country, where the name starts with specific character");
-        Character CHAR = 'C';
-        Data.COUNTRIES.get()
-                .filter(country -> country.getName().startsWith(String.valueOf(CHAR)))
-                .forEach(country -> System.out.printf(" Found: %s\n", country.getName()));
+
+        LambdaLibrary.FIND_COUNTRY_BY_START_CHAR
+                .apply(Data.COUNTRIES.get(), 'C')
+                .forEach(c -> System.out.printf(" Found: %s\n", c.getName()));
 
         printer.accept("9. Find the city population by city name");
-        String CITY2 = "Suez";
-        Data.COUNTRIES.get()
-                .forEach(country
-                        -> LambdaLibrary.FIND_CITY_BY_NAME.apply(CITY2, country)
-                        .ifPresent(city -> System.out.printf(" Found: %s %.2fm\n",
-                        city.getName(), city.getPopulation())));
+
+        LambdaLibrary.FIND_CITY_POPULATION_BY_NAME
+                .apply(Data.COUNTRIES.get(), "Suez")
+                .ifPresent(city -> System.out.printf(" Found: %s %.2fm\n",
+                city.getName(), city.getPopulation()));
 
         printer.accept("10.Print the city and population in sorted order");
-        Data.COUNTRIES.get()
-                .forEach(country -> {
-                    System.err.println(country.getName());
-                    country.getCities()
-                            .stream()
-                            .sorted(Comparator.comparing(City::getPopulation))
-                            .forEach(city -> System.out.printf("  %s%.3fm\n",
-                            city.getName(), city.getPopulation())
-                            );
-                });
+
+        LambdaLibrary.GET_CITIES_SORTED_BY_POPULATION
+                .apply(Data.COUNTRIES.get())
+                .forEach(city -> System.out.printf("  %s%.3fm\n",
+                city.getName(), city.getPopulation()));
 
         printer.accept("11. Print the city and population in reversed order");
-        Data.COUNTRIES.get()
-                .forEach(country -> {
-                    System.err.println(country.getName());
-                    country.getCities()
-                            .stream()
-                            .sorted(Comparator.comparing(City::getPopulation).reversed())
-                            .forEach(city -> {
-                                System.out.printf(" %s%.3fm\n",
-                                        city.getName(), city.getPopulation());
-                            });
-                });
+        
+        LambdaLibrary.GET_CITIES_SORTED_IN_REVERSE_BY_POPULATION
+                .apply(Data.COUNTRIES.get())
+                .forEach(city -> System.out.printf("  %s%.3fm\n",
+                city.getName(), city.getPopulation()));
 
         printer.accept("12.Find the Summary Statistic of each country");
         Data.COUNTRIES.get()
