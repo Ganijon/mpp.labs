@@ -2,14 +2,16 @@ package mpp.labs.practice;
 
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
 
-public class Data {
+public class DataProvider {
 
-    static Supplier<Stream<Country>> COUNTRIES = () -> {
+    public static Set<Country> GetCountryData() {
 
-        Set<Country> countries = new TreeSet<>(); // order not retained
+        // Set<T>
+        // only unique values (hashCode) allowed
+        // insertion order not retained
+        Set<Country> countries = new TreeSet<>();
+
         countries.add(new Country("China       ",
                 new City("Guangzhou       ", 44.294_245),
                 new City("Shanghai        ", 35.965_403),
@@ -83,6 +85,7 @@ public class Data {
                 new City("Tangerang       ", 2.001_925),
                 new City("Depok           ", 1.869_681)));
 
-        return countries.stream();
-    };
+        return countries;
+    }
+;
 }

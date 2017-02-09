@@ -4,8 +4,8 @@ public class City {
 
     private final String name;
     private final double population;
-    
-    public City(String cityName, double population){
+
+    public City(String cityName, double population) {
         this.name = cityName;
         this.population = population;
     }
@@ -17,12 +17,12 @@ public class City {
     public double getPopulation() {
         return population;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("City:");
-        sb.append(name);
+        sb.append(name.trim());
         sb.append(" Population:");
         sb.append(population);
         sb.append("m");
@@ -31,8 +31,12 @@ public class City {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null) return false;
-        if (o.getClass() != this.getClass()) return false;
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
         City c = (City) o;
         return c.name.equals(this.name)
                 && c.population == this.population;
